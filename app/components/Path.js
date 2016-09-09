@@ -55,7 +55,7 @@ export class Paths extends Component {
 
 Paths.propTypes = {
   actions: React.PropTypes.object.isRequired,
-  paths: React.PropTypes.object.isRequired,
+  paths: React.PropTypes.array.isRequired,
   location: React.PropTypes.object.isRequired,
   profiles: React.PropTypes.object.isRequired,
 };
