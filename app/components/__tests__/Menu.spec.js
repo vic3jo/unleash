@@ -5,6 +5,11 @@ import { expect } from 'chai';
 import sinon from 'sinon';
 import Menu from '../Menu';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import injectTapEventPlugin from 'react-tap-event-plugin';
+
+// As we're testing a component that use 'onTouchTap', we
+// need to inject the Tap Event Plugin.
+injectTapEventPlugin();
 
 describe('Menu Component', () => {
   let component;

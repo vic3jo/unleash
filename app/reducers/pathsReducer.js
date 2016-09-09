@@ -6,7 +6,7 @@
 
 import { PATHS_LIST_SUCCESS, PATHS_LIST_FAILURE } from '../actions/PathsActions';
 
-function pathsReducer(paths = {}, action) {
+function pathsReducer(paths = [], action) {
   Object.freeze(paths);
 
   let newPaths;
@@ -21,7 +21,7 @@ function pathsReducer(paths = {}, action) {
       });
       return newPaths;
     case PATHS_LIST_FAILURE:
-      return {};
+      return [];
     default:
       return paths;
   }
