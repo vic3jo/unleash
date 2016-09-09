@@ -9,21 +9,10 @@ import Paths from '../Path';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
 describe('Path Component', () => {
-
-  const createProfileWithKey = () => {
-    const profiles = generate('profile', 3);
-    const keyProfiles = {};
-    forEach(profiles, profile => {
-      keyProfiles[profile.username] = profile;
-    });
-    return keyProfiles;
-  };
-
-  const profiles = createProfileWithKey();
-  const key = keys(profiles)[0];
-  const paths = generate('path', 5, profiles[key].id);
+  const testId = 'testId';
+  const paths = generate('path', 5, testId);
   const location = {
-    pathname: `/profiles/${profiles[key].username}`
+    pathname: `/profiles/${testId}`
   };
   let component;
   let mockedActions;
@@ -39,6 +28,9 @@ describe('Path Component', () => {
     const router = {
       push: routerSpy,
     };
+    const params = {
+      userId: testId
+    }
     const context = {
       muiTheme: getMuiTheme()
     };
@@ -48,7 +40,7 @@ describe('Path Component', () => {
 
     component = mount(
       <Paths
-        profiles={profiles}
+        params={params}
         actions={mockedActions}
         paths={paths}
         location={location}
@@ -77,5 +69,4 @@ describe('Path Component', () => {
     });
     expect(goalsItems.length).to.equal(goalsLength);
   });
-
 });

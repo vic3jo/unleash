@@ -13,7 +13,6 @@ import Paths from '../components/Path';
 function mapStateToProps(state) {
   return {
     paths: state.paths,
-    profiles: state.profiles,
   };
 }
 

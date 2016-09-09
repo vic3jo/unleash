@@ -1,9 +1,3 @@
-/**
- * Unleash | Path.js
- * @author X-Team 2016 <http://www.x-team.com>
- * @author Kelvin De Moya <kelvin.demoya@x-team.com>
- */
-
 import React, { Component } from 'react';
 import List from 'material-ui/List/List';
 import ListItem from 'material-ui/List/ListItem';
@@ -12,15 +6,8 @@ import * as _ from 'lodash';
 
 class Paths extends Component {
   componentDidMount() {
-    const { profiles, actions } = this.props;
-    // @TODO: (Kelvin De Moya) - Refactor when username API endpoint is ready.
-    const currentUsername = _.chain(this.props.location.pathname)
-                              .split('/')
-                              .last()
-                              .value();
-    const currentUserObject = profiles[currentUsername];
-
-    actions.pathsList(currentUserObject.id);
+    const { actions, params } = this.props;
+    actions.pathsList(params.userId);
   }
 
   renderGoals(goals) {
@@ -55,8 +42,8 @@ Paths.propTypes = {
   actions: React.PropTypes.object.isRequired,
   paths: React.PropTypes.object.isRequired,
   location: React.PropTypes.object.isRequired,
-  profiles: React.PropTypes.object.isRequired,
   router: React.PropTypes.object.isRequired,
+  params: React.PropTypes.object.isRequired,
 };
 
 export default Paths;

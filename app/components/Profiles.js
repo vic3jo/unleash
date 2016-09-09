@@ -7,8 +7,8 @@ class Profiles extends Component {
     this.props.actions.profileList();
   }
 
-  handleProfileSelect(username) {
-    this.props.router.push(`/profiles/${username}`);
+  handleProfileSelect(userId) {
+    this.props.router.push(`/profiles/${userId}`);
   }
 
   render() {
@@ -19,7 +19,7 @@ class Profiles extends Component {
           <ListItem
             key={profiles[username].id}
             primaryText={profiles[username].fullName}
-            onTouchTap={() => this.handleProfileSelect(username)}
+            onTouchTap={() => this.handleProfileSelect(profiles[username].id)}
           />
         ))}
       </List>
