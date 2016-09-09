@@ -10,7 +10,7 @@ import { Route } from 'react-router';
 export default (
   <Route path="/" component={UnleashApp}>
     <Route path="/profiles" component={ProfilesContainer} />
-    <Route path="/profiles/:username" component={PathContainer} />
+    <Route path="/profiles/:userId" component={PathContainer} />
     <Route path="/skills" component={SkillsContainer} />
     <Route path="/skills/:name" component={SkillContainer} />
     <Route path="/goals" component={GoalsContainer} />
