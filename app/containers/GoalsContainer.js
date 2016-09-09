@@ -7,6 +7,7 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
+import * as GoalsActions from '../actions/GoalsActions';
 import Goals from '../components/Goals';
 
 function mapStateToProps(state) {
@@ -17,7 +18,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    actions: bindActionCreators(dispatch),
+    actions: bindActionCreators(GoalsActions, dispatch),
   };
 }
 

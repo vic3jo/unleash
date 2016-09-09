@@ -1,9 +1,11 @@
 import { times } from 'lodash';
+import generateGoal from './goal';
 import generateSkill from './skill';
 import generateProfile from './profile';
 import generatePath from './path';
 
 const fixtures = {
+  goal: generateGoal,
   skill: generateSkill,
   profile: generateProfile,
   path: generatePath,
