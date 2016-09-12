@@ -41,7 +41,7 @@ describe('Profile Actions', () => {
 
     it('should call the dispatcher for profileList', () => {
       const hostname = 'https://txkaf3ohhf.execute-api.us-west-2.amazonaws.com';
-      const path = '/prod/profiles';
+      const path = '/staging/profiles';
 
       const httpResponse = generate('profile', 15);
       const requestCall = nock(hostname).get(path).reply(200, httpResponse);

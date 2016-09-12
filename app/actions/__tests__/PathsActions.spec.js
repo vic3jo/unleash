@@ -41,7 +41,7 @@ describe('Path Actions', () => {
 
     it('should call the dispatcher for pathsList', () => {
       const userId = 150;
-      const hostname = 'http://paths.unleash.x-team.com';
+      const hostname = 'http://paths-staging.unleash.x-team.com';
       const path = `/api/v1/paths.json?userId=${userId}`;
 
       const httpResponse = generate('path', 15, userId);
