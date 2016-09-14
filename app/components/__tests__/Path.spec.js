@@ -30,7 +30,7 @@ describe('Path Component', () => {
     };
     const params = {
       userId: testId
-    }
+    };
     const context = {
       muiTheme: getMuiTheme()
     };
@@ -57,12 +57,12 @@ describe('Path Component', () => {
   });
 
   it('should render the list of paths', () => {
-    const pathItems = component.find('Subheader');
+    const pathItems = component.find('.pathHeader');
     expect(pathItems.length).to.equal(paths.length);
   });
 
   it('should render the list of goals', () => {
-    const goalsItems = component.find('ListItem');
+    const goalsItems = component.find('GoalCard');
     let goalsLength = 0;
     forEach(paths, path => {
       goalsLength += path.goals.length;
