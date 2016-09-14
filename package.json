@@ -21,7 +21,7 @@
   },
   "nyc": {
     "exclude": [
-      "**/*.specs.js",
+      "**/*.spec.js",
       "node_modules"
     ],
     "reporter": [
@@ -32,11 +32,13 @@
   },
   "homepage": "https://github.com/x-team/unleash#readme",
   "dependencies": {
+    "immutable": "^3.8.1",
     "lodash": "^4.15.0",
     "material-ui": "^0.15.2",
     "react": "^15.2.1",
     "react-dom": "^15.2.1",
     "react-redux": "^4.4.5",
+    "react-redux-toastr": "^3.7.0",
     "react-router": "^2.6.0",
     "react-tap-event-plugin": "^1.0.0",
     "redux": "^3.5.2",

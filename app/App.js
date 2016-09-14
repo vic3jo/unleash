@@ -10,10 +10,15 @@ import { Router, browserHistory } from 'react-router';
 import routes from './config/routes';
 import configureStore from './store/configureStore';
 import injectTapEventPlugin from 'react-tap-event-plugin';
+import AuthService from './services/authService';
 
 injectTapEventPlugin();
 
 const store = configureStore();
+
+// Init Firebase and Google Auth
+const authService = new AuthService(store.dispatch);
+authService.init();
 
 ReactDOM.render(
   <Provider store={store}>

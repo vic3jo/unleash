@@ -10,6 +10,7 @@ import ActionDashboard from 'material-ui/svg-icons/action/dashboard';
 import ActionGrade from 'material-ui/svg-icons/action/grade';
 import { blueGrey50, blueGrey800 } from 'material-ui/styles/colors';
 import LogoImg from '../assets/logo.png';
+import KeyIcon from 'material-ui/svg-icons/communication/vpn-key';
 
 const styles = {
   titleBar: {
@@ -28,10 +29,11 @@ const styles = {
 
 class Menu extends Component {
   handleMenuClick(path) {
-    this.context.router.push(path);
+    this.props.router.push(path);
   }
 
   render() {
+    const { userLogoutProcess } = this.props;
     const unleashLogo = <img src={LogoImg} alt="Unleash" width="40" />;
     const iconProps = { color: blueGrey50 };
     return (
@@ -77,14 +79,22 @@ class Menu extends Component {
           >
             Skills
           </MenuItem>
+          <MenuItem
+            leftIcon={<KeyIcon {...iconProps} />}
+            onTouchTap={() => userLogoutProcess()}
+            style={styles.menuItem}
+          >
+            Log Out
+          </MenuItem>
         </MaterialUIMenu>
       </Drawer>
     );
   }
 }
 
-Menu.contextTypes = {
-  router: React.PropTypes.object.isRequired,
+Menu.propTypes = {
+  router: React.PropTypes.object,
+  userLogoutProcess: React.PropTypes.func,
 };
 
 export default Menu;
