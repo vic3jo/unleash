@@ -1,11 +1,11 @@
 import config from '../../config';
 
-export const SKILL_LIST = 'SKILL_LIST';
+export const SKILL_LIST_START = 'SKILL_LIST_START';
 export const SKILL_LIST_SUCCESS = 'SKILL_LIST_SUCCESS';
 export const SKILL_LIST_FAILURE = 'SKILL_LIST_FAILURE';
 
-function doSkillList() {
-  return { type: SKILL_LIST };
+function skillListStart() {
+  return { type: SKILL_LIST_START };
 }
 
 export function skillListSuccess(skills) {
@@ -18,7 +18,7 @@ export function skillListFailure(errors) {
 
 export function skillList() {
   return (dispatch) => {
-    dispatch(doSkillList());
+    dispatch(skillListStart());
 
     return fetch(config.skills_api_url)
       .then(response => response.json())

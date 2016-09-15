@@ -12,7 +12,7 @@ export default (
     <Route path="/profiles" component={ProfilesContainer} />
     <Route path="/profiles/:userId" component={PathContainer} />
     <Route path="/skills" component={SkillsContainer} />
-    <Route path="/skills/:name" component={SkillContainer} />
+    <Route path="/skills/:slug" component={SkillContainer} />
     <Route path="/goals" component={GoalsContainer} />
   </Route>
 );

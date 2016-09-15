@@ -11,7 +11,7 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 describe('Profiles List', () => {
   let component;
   const profiles = generate('profile', 15);
-  const mockedProfiles = keyBy(profiles, 'username');
+  const mockedProfiles = { list: keyBy(profiles, 'username') };
   let mockedActions;
   let profileListSpy;
   let routerSpy;

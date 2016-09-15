@@ -11,7 +11,7 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 describe('Skills List', () => {
   let component;
   const skills = generate('skill', 15);
-  const mockedSkills = keyBy(skills, 'name');
+  const mockedSkills = { list: keyBy(skills, 'name') };
   let mockedActions;
   let skillListSpy;
   let routerSpy;

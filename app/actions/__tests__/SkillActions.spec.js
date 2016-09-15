@@ -47,7 +47,7 @@ describe('Skill Actions', () => {
       const requestCall = nock(hostname).get(path).reply(200, httpResponse);
 
       const expectedActions = [
-        {type: 'SKILL_LIST'},
+        {type: 'SKILL_LIST_START'},
         SkillActions.skillListSuccess(httpResponse)
       ];
 

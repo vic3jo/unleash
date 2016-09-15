@@ -1,25 +1,31 @@
 import React, { Component } from 'react';
 import List from 'material-ui/List/List';
 import ListItem from 'material-ui/List/ListItem';
+import Loading from './Loading';
 
 class Skills extends Component {
   componentDidMount() {
     this.props.actions.skillList();
   }
 
-  handleSkillSelect(skillName) {
-    this.props.router.push(`/skills/${skillName}`);
+  handleSkillSelect(skillSlug) {
+    this.props.router.push(`/skills/${skillSlug}`);
   }
 
   render() {
     const { skills } = this.props;
+
+    if (skills.isLoading || skills.list === null) {
+      return <Loading />;
+    }
+
     return (
       <List>
-        {Object.keys(skills).map(skill => (
+        {Object.keys(skills.list).map(skill => (
           <ListItem
-            key={skills[skill].id}
+            key={skills.list[skill].id}
             primaryText={skill}
-            onTouchTap={() => this.handleSkillSelect(skill)}
+            onTouchTap={() => this.handleSkillSelect(skills.list[skill].slug)}
           />
         ))}
       </List>
