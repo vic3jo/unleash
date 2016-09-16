@@ -12,7 +12,8 @@ angular.module('unleashApp')
       templateUrl: 'views/partials/person.html',
       scope: {
         name: '@',
-        thumb: '@'
+        thumb: '@',
+        picurl: '@'
       }
     };
   });

@@ -29,7 +29,8 @@ module.exports = function (grunt) {
     paths: process.env.PATHS_URL,
     profiles: process.env.PROFILES_URL,
     buildNumber: process.env.TRAVIS_BUILD_NUMBER,
-    mixpanelAnalyticsEnabled: process.env.MIXPANEL_ANALYTICS_ENABLED
+    mixpanelAnalyticsEnabled: process.env.MIXPANEL_ANALYTICS_ENABLED,
+    defaultPictureUrl: process.env.DEFAULT_PICTURE_URL
   };
 
   // Define the configuration for all the tasks
@@ -77,6 +78,10 @@ module.exports = function (grunt) {
             {
               match: 'MIXPANEL_ANALYTICS_ENABLED',
               replacement: '<%= unleash.mixpanelAnalyticsEnabled %>'
+            },
+            {
+              match: 'DEFAULT_PICTURE_URL',
+              replacement: '<%= unleash.defaultPictureUrl %>'
             }
           ]
         },

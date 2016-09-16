@@ -13,6 +13,7 @@
   var PROFILES_URL = '@@PROFILES_URL';
   var TRAVIS_BUILD_NUMBER = '@@TRAVIS_BUILD_NUMBER';
   var MIXPANEL_ANALYTICS_ENABLED = '@@MIXPANEL_ANALYTICS_ENABLED';
+  var DEFAULT_PICTURE_URL = '@@DEFAULT_PICTURE_URL';
 
   angular
     .module('unleashApp')
@@ -24,5 +25,6 @@
     .constant('BUILD_NUMBER', TRAVIS_BUILD_NUMBER)
     .constant('ANALYTICS_ENABLED', MIXPANEL_ANALYTICS_ENABLED === 'true')
     .constant('MAIL_CONFIG', { url: MANDRILL_URL, key: MANDRILL_API_KEY })
-    .constant('SLACK_CONFIG', { botUrl: BOT_URL });
+    .constant('SLACK_CONFIG', { botUrl: BOT_URL })
+    .constant('DEFAULT_PICTURE_URL', DEFAULT_PICTURE_URL);
 })();

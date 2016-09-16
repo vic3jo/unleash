@@ -1,4 +1,9 @@
 <div class="person">
-  <img class="person__thumb" ng-src="{{ thumb }}" alt="{{ name }}">
+  <div ng-if="!thumb">
+      <img class="person__thumb" ng-src="{{ picurl }}" alt="{{ name }}">
+  </div>
+  <div ng-if="thumb">
+      <img class="person__thumb" ng-src="{{ thumb }}" alt="{{ name }}">
+  </div>
   <h2 class="person__name">{{ name }}</h2>
 </div>

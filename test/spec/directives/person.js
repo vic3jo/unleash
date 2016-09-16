@@ -42,8 +42,8 @@ describe('Directive: unleashPerson', function () {
     });
 
     it('should display an image', function() {
-      expect(element[0].children[0].children[0].src).to.equal(thumb);
-      expect(element[0].children[0].children[0].alt).to.equal(name);
+      expect(element[0].children[0].children[0].children[0].src).to.equal(thumb);
+      expect(element[0].children[0].children[0].children[0].alt).to.equal(name);
     });
   });
 });

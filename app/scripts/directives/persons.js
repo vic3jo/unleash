@@ -11,7 +11,8 @@ angular.module('unleashApp')
     return {
       templateUrl: 'views/partials/persons.html',
       scope: {
-        users: '='
+        users: '=',
+        picurl: '='
       }
     };
   });
