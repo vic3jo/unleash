@@ -28,6 +28,14 @@ module.exports = {
       {
         test: /\.(png|jpg|)$/,
         loader: 'url-loader?limit=200000'
+      },
+      { test: /\.css$/, loader: "style-loader!css-loader" },
+      {
+        test: /\.woff(2)?(\?[a-z0-9]+)?$/,
+        loader: "url-loader?limit=10000&mimetype=application/font-woff"
+      }, {
+        test: /\.(ttf|eot|svg)(\?[a-z0-9]+)?$/,
+        loader: "file-loader"
       }
     ]
   },
