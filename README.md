@@ -35,7 +35,7 @@ Given `192.168.99.100` is your machines ip add a line like this to your `/etc/ho
 
 In order to install node & bower dependencies run the command (it might take a while but it's one-time only):
 ```
-docker-compose run web npm install && bower install --allow-root
+docker-compose run web bash -c "npm install && bower install --allow-root"
 ```
 
 ### Running
