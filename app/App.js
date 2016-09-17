@@ -1,4 +1,8 @@
 require('./styles/icons.css');
+// Add fetch support for browsers without fetch
+require('es6-promise').polyfill();
+require('isomorphic-fetch');
+
 import React from 'react';
 import { Provider } from 'react-redux';
 import ReactDOM from 'react-dom';
