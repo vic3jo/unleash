@@ -51,7 +51,7 @@
     "babel-preset-react": "^6.11.1",
     "babel-preset-stage-0": "^6.5.0",
     "chai": "^3.5.0",
-    "config-webpack-plugin": "^1.0.1",
+    "config-webpack-plugin": "^1.1.0",
     "css-loader": "^0.25.0",
     "enzyme": "^2.4.1",
     "es6-promise": "^3.2.1",
