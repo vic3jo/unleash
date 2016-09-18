@@ -49,20 +49,11 @@ describe('Profiles List', () => {
   });
 
   it('should render the list of profiles', () => {
-    const listItems = component.find('ListItem');
+    const listItems = component.find('UserCard');
     expect(listItems.length).to.equal(profiles.length);
   });
 
   it('should fetch the profiles lists when component is mounted', () => {
     expect(profileListSpy.callCount).to.equal(1);
-  });
-
-  it('should go to a profile page when a profile is selected', () => {
-    const index = random(profiles.length - 1);
-    const profile = profiles[index];
-    const profileElement = component.find('Profiles');
-    profileElement.node.handleProfileSelect(profile.username);
-    const expectedRoute = `/profiles/${profile.username}`;
-    expect(routerSpy.getCall(0).args[0]).to.equal(expectedRoute);
   });
 });
