@@ -41,7 +41,7 @@ angular.module('unleashApp', [
     growlProvider.globalInlineMessages(true);
   })
 
-.run(function($rootScope, $route, googleApi, $location, userService, googleService, localStorageService, $analytics, ANALYTICS_ENABLED) {
+.run(function($rootScope, $route, googleApi, $location, userService, googleService, localStorageService, $analytics, ANALYTICS_ENABLED, DEFAULT_PICTURE_URL) {
   if (localStorageService.get('logged_in')) {
     $rootScope.initializing = true;
   }
@@ -58,6 +58,7 @@ angular.module('unleashApp', [
             $rootScope.user = user;
             userService.list().then(function(users) {
               $rootScope.allUsers = users;
+              $rootScope.defaultPictureUrl = DEFAULT_PICTURE_URL;
             });
 
             if (ANALYTICS_ENABLED) {
