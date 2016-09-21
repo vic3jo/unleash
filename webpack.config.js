@@ -40,6 +40,6 @@ module.exports = {
     ]
   },
   plugins: [
-    new ConfigPlugin('./config')
+    new ConfigPlugin(['./config.js', './config.dist.js'])
   ]
 };
