@@ -5,22 +5,11 @@
  */
 
 import config from '../../config';
+import { createAction } from 'redux-act';
 
-export const PATHS_LIST = 'PATHS_LIST';
-export const PATHS_LIST_SUCCESS = 'PATHS_LIST_SUCCESS';
-export const PATHS_LIST_FAILURE = 'PATHS_LIST_FAILURE';
-
-function doPathsList() {
-  return { type: PATHS_LIST };
-}
-
-export function pathsListSuccess(paths) {
-  return { type: PATHS_LIST_SUCCESS, paths };
-}
-
-export function pathsListFailure(errors) {
-  return { type: PATHS_LIST_FAILURE, errors };
-}
+export const doPathsList = createAction('PATHS_LIST');
+export const pathsListSuccess = createAction('PATHS_LIST_SUCCESS', (paths) => ({ paths }));
+export const pathsListFailure = createAction('PATHS_LIST_FAILURE', (errors) => ({ errors }));
 
 export function pathsList(userId) {
   return (dispatch) => {

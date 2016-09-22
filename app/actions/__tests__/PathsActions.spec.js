@@ -13,20 +13,12 @@ describe('Path Actions', () => {
 
   it('should create an action for pathsListSuccess', () => {
     const paths = '/unleash/paths';
-    const expectedAction = {
-      type: PathsActions.PATHS_LIST_SUCCESS,
-      paths
-    };
-    expect(PathsActions.pathsListSuccess(paths)).to.deep.equal(expectedAction);
+    expect(PathsActions.pathsListSuccess(paths)).to.deep.equal(PathsActions.pathsListSuccess.raw(paths));
   });
 
   it('should create an action for pathsListFailure', () => {
     const errors = 'Oops an error!';
-    const expectedAction = {
-      type: PathsActions.PATHS_LIST_FAILURE,
-      errors
-    };
-    expect(PathsActions.pathsListFailure(errors)).to.deep.equal(expectedAction);
+    expect(PathsActions.pathsListFailure(errors)).to.deep.equal(PathsActions.pathsListFailure.raw(errors));
   });
 
   describe('Dispatch Actions', () => {
@@ -48,7 +40,7 @@ describe('Path Actions', () => {
       const requestCall = nock(hostname).get(path).reply(200, httpResponse);
 
       const expectedActions = [
-        {type: 'PATHS_LIST'},
+        PathsActions.doPathsList.raw(),
         PathsActions.pathsListSuccess(httpResponse)
       ];
 
