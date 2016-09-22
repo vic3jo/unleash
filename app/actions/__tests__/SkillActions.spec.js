@@ -40,7 +40,7 @@ describe('Skill Actions', () => {
     });
 
     it('should call the dispatcher for skillList', () => {
-      const hostname = 'http://skills.unleash.x-team.com';
+      const hostname = 'http://skills-staging.unleash.x-team.com';
       const path = '/api/v1/skills.json';
 
       const httpResponse = generate('skill', 15);

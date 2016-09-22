@@ -1,6 +1,6 @@
-# Unleash your path
+# Unleash your potential
 
-A project dedicated to help X-Teamers grow and see a progress they make along the way.
+An app that helps developers grow and track their progress.
 
 [![Build Status](https://travis-ci.org/x-team/unleash.svg?branch=master)](https://travis-ci.org/x-team/unleash)
 [![dependencies Status](https://david-dm.org/x-team/unleash/status.svg)](https://david-dm.org/x-team/unleash)
@@ -8,7 +8,7 @@ A project dedicated to help X-Teamers grow and see a progress they make along th
 
 ## Requirements
 
-Basically, you need to install:
+You need to install:
 - [Docker](https://www.docker.com)
 
 (Note: if you're using OS X and install Docker Toolbox with Docker Machine webpack's liverload won't probably work - please install Docker For Mac to fully utilize webpack's livereloading)
@@ -24,9 +24,11 @@ docker-compose run web npm install
 
 ### Config
 
-Copy the configuration and apply your changes:
-```
-cp config.dist.js config.js
+Create a `config.js` in the root directory of the project and override or set any value provided by `config.dist.js`. The minimal contents for the `config.js` file should be:
+
+```js
+module.exports = {
+}
 ```
 
 ### Running

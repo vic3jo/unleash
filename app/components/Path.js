@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import List from 'material-ui/List/List';
-import ListItem from 'material-ui/List/ListItem';
-import Subheader from 'material-ui/Subheader';
+import GoalCard from './GoalCard';
 import * as _ from 'lodash';
+
+let styles = {};
 
 class Paths extends Component {
   componentDidMount() {
@@ -12,18 +12,21 @@ class Paths extends Component {
 
   renderGoals(goals) {
     return _.map(goals, (goal) =>
-      <ListItem
-        key={goal.id}
-        primaryText={goal.name}
-      />
+      <GoalCard goal={goal} />
     );
   }
 
   renderPath(path) {
     return (
       <div key={path.id}>
-        <Subheader>{path.name || 'Default'}</Subheader>
-        {this.renderGoals(path.goals)}
+        <div className="pathHeader" style={styles.pathHeader}>
+          <div style={styles.divider}></div>
+          <div><i className="icon-map" /> {path.name || 'Main Path'}</div>
+          <div style={styles.divider}></div>
+        </div>
+        <div style={styles.pathsWrapper}>
+          {this.renderGoals(path.goals)}
+        </div>
       </div>
     );
   }
@@ -31,9 +34,9 @@ class Paths extends Component {
   render() {
     const { paths } = this.props;
     return (
-      <List>
+      <div>
         {_.map(paths, (path) => this.renderPath(path))}
-      </List>
+      </div>
     );
   }
 }
@@ -44,6 +47,39 @@ Paths.propTypes = {
   location: React.PropTypes.object.isRequired,
   router: React.PropTypes.object.isRequired,
   params: React.PropTypes.object.isRequired,
+};
+
+styles = {
+  pathsWrapper: {
+    display: 'flex',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-around',
+    margin: 'auto',
+    width: '90%',
+    maxWidth: '1150px',
+  },
+  pathHeader: {
+    display: 'flex',
+    flexDirection: 'row',
+    flexWrap: 'nowrap',
+    maxWidth: '1150px',
+    margin: '40px auto 0',
+    padding: '0 40px',
+    textAlign: 'center',
+    fontFamily: 'Inconsolata, cursive',
+    fontWeight: 'lighter',
+    fontSize: '26px',
+    textTransform: 'capitalize',
+    color: '#969696',
+  },
+  divider: {
+    flexGrow: 1,
+    backgroundColor: '#ebebeb',
+    height: '1px',
+    alignSelf: 'center',
+    margin: '0 20px',
+  },
 };
 
 export default Paths;

@@ -40,7 +40,6 @@
     "react-router": "^2.6.0",
     "react-tap-event-plugin": "^1.0.0",
     "redux": "^3.5.2",
-    "redux-logger": "^2.6.1",
     "redux-thunk": "^2.1.0"
   },
   "devDependencies": {
@@ -52,7 +51,8 @@
     "babel-preset-react": "^6.11.1",
     "babel-preset-stage-0": "^6.5.0",
     "chai": "^3.5.0",
-    "config-webpack-plugin": "^1.0.1",
+    "config-webpack-plugin": "^1.1.0",
+    "css-loader": "^0.25.0",
     "enzyme": "^2.4.1",
     "es6-promise": "^3.2.1",
     "eslint": "^2.13.1",
@@ -78,6 +78,7 @@
     "react-addons-test-utils": "^15.2.1",
     "redux-mock-store": "^1.1.4",
     "sinon": "^1.17.5",
+    "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
     "webpack": "^1.13.1",
     "webpack-dev-middleware": "^1.6.1"
