@@ -47,7 +47,7 @@ describe('Profile Actions', () => {
       const requestCall = nock(hostname).get(path).reply(200, httpResponse);
 
       const expectedActions = [
-        {type: 'PROFILE_LIST'},
+        {type: 'PROFILE_LIST_START'},
         ProfileActions.profileListSuccess(httpResponse)
       ];
 

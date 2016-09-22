@@ -12,7 +12,7 @@ class Profiles extends Component {
   }
 
   render() {
-    const { profiles } = this.props;
+    const profiles = this.props.profiles.list;
     return (
       <List>
         {Object.keys(profiles).map(username => (

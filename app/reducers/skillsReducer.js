@@ -1,20 +1,36 @@
-import { SKILL_LIST_SUCCESS, SKILL_LIST_FAILURE } from '../actions/SkillActions';
+import { SKILL_LIST_START, SKILL_LIST_SUCCESS, SKILL_LIST_FAILURE } from '../actions/SkillActions';
 
-function skillsReducer(skills = {}, action) {
-  Object.freeze(skills);
+const initialState = {
+  list: null,
+  isLoading: false,
+};
 
-  let newSkills;
+function skillsReducer(state = initialState, action) {
+  const skills = {};
   switch (action.type) {
+    case SKILL_LIST_START:
+      return {
+        ...state,
+        list: null,
+        isLoading: true,
+      };
     case SKILL_LIST_SUCCESS:
-      newSkills = {};
       action.skills.forEach((skill) => {
-        newSkills[skill.name] = skill;
+        skills[skill.name] = skill;
       });
-      return newSkills;
+      return {
+        ...state,
+        list: skills,
+        isLoading: false,
+      };
     case SKILL_LIST_FAILURE:
-      return {};
+      return {
+        ...state,
+        list: null,
+        isLoading: false,
+      };
     default:
-      return skills;
+      return state;
   }
 }
 

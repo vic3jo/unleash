@@ -1,22 +1,42 @@
-import { PROFILE_LIST_SUCCESS, PROFILE_LIST_FAILURE } from '../actions/ProfileActions';
+import {
+  PROFILE_LIST_START,
+  PROFILE_LIST_SUCCESS,
+  PROFILE_LIST_FAILURE
+} from '../actions/ProfileActions';
 
-function profilesReducer(profiles = {}, action) {
-  Object.freeze(profiles);
+const initialState = {
+  list: null,
+  isLoading: false,
+};
 
-  let newProfiles;
+function profilesReducer(state = initialState, action) {
+  const profiles = {};
   switch (action.type) {
+    case PROFILE_LIST_START:
+      return {
+        ...state,
+        list: null,
+        isLoading: true,
+      };
     case PROFILE_LIST_SUCCESS:
-      newProfiles = {};
       if (action.profiles.Count) {
         action.profiles.Items.forEach((profile) => {
-          newProfiles[profile.username] = profile;
+          profiles[profile.username] = profile;
         });
       }
-      return newProfiles;
+      return {
+        ...state,
+        list: profiles,
+        isLoading: false,
+      };
     case PROFILE_LIST_FAILURE:
-      return {};
+      return {
+        ...state,
+        list: null,
+        isLoading: false,
+      };
     default:
-      return profiles;
+      return state;
   }
 }
 
