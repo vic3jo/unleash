@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-import List from 'material-ui/List/List';
-import ListItem from 'material-ui/List/ListItem';
-import Avatar from 'material-ui/Avatar';
 import Loading from './Loading';
-import { find, every, some, values } from 'lodash';
+import { find, every, some, values, map } from 'lodash';
+import UserCard from './UserCard';
 
 let styles = {};
 
@@ -26,16 +24,9 @@ class Skill extends Component {
     if (profiles.length === 0) {
       return <p style={styles.empty}>No profiles yet with this skill.</p>;
     }
-    return (
-      <List>
-        {profiles.map((profile) => (
-          <ListItem
-            key={profile.id}
-            primaryText={profile.fullName}
-            leftAvatar={<Avatar src={profile.picture} />}
-          />
-        ))}
-      </List>
+
+    return map(profiles, (profile) =>
+      <UserCard user={profile} router={this.props.router} key={profile.id} />
     );
   }
 
@@ -58,7 +49,9 @@ class Skill extends Component {
           <div>{skill.name}</div>
           <div style={styles.divider}></div>
         </div>
-        {this.renderList(skilled)}
+        <div style={styles.profiles}>
+          {this.renderList(skilled)}
+        </div>
       </div>
     );
   }
@@ -70,6 +63,7 @@ Skill.propTypes = {
   profiles: React.PropTypes.object.isRequired,
   profilesBySkill: React.PropTypes.object.isRequired,
   params: React.PropTypes.object.isRequired,
+  router: React.PropTypes.object.isRequired,
 };
 
 styles = {
@@ -98,6 +92,14 @@ styles = {
     color: '#969696',
     textAlign: 'center',
     marginTop: '40px'
+  },
+  profiles: {
+    display: 'flex',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-around',
+    maxWidth: '1024px',
+    margin: '0 auto',
   }
 };
 

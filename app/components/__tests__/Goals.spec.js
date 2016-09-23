@@ -8,7 +8,7 @@ import generate from '../../testUtils/fixtures';
 import Goals from '../Goals';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
-describe('Skills List', () => {
+describe('Goals List', () => {
   let component;
   const goals = generate('goal', 15);
   const mockedData = { list: goals };

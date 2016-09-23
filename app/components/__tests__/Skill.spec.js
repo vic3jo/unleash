@@ -8,7 +8,7 @@ import generate from '../../testUtils/fixtures';
 import Skill from '../Skill';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
-describe('Goals List', () => {
+describe('Skill Details', () => {
   let component;
   let mockedActions;
   let mockedRouter;
@@ -54,7 +54,7 @@ describe('Goals List', () => {
   });
 
   it('should render the list of skilled profiles', () => {
-    const listItems = component.find('ListItem');
+    const listItems = component.find('UserCard');
     expect(listItems.length).to.equal(mockedProfilesBySkill.profiles.length);
   });
 
