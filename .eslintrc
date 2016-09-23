@@ -9,5 +9,8 @@
   "plugins": [ "react" ],
   "rules": {
     "comma-dangle": 0
+  },
+  "globals": {
+    "firebase": false,
   }
 }

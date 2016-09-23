@@ -12,6 +12,11 @@ require('isomorphic-fetch');
 
 var jsdom = require('jsdom').jsdom;
 
+var injectTapEventPlugin = require('react-tap-event-plugin');
+// Needed for onTouchTap
+// http://stackoverflow.com/a/34015469/988941
+injectTapEventPlugin();
+
 var exposedProperties = ['window', 'navigator', 'document', 'fetch'];
 
 global.document = jsdom('');

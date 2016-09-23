@@ -31,6 +31,16 @@ module.exports = {
 }
 ```
 
+### Google Authentication and Firebase
+
+Steps to get a Firebase Key for local development:
+1. Create a Firebase project in the [Firebase console](https://console.firebase.google.com/)
+2. Click Add Firebase to your web app.
+3. Note the initialization code snippet, which you will use in a minute.
+4. In the Firebase console, open the Auth section.
+5. On the Sign in method tab, enable the Google sign-in method and click Save.
+6. Update your `config.js` with your Firebase key.
+
 ### Running
 
 In the Docker Quickstart Terminal go to the application folder and type:

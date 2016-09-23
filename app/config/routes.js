@@ -1,5 +1,5 @@
 import React from 'react';
-import UnleashApp from '../components/UnleashApp';
+import UnleashApp from '../containers/UnleashApp';
 import ProfilesContainer from '../containers/ProfilesContainer';
 import PathContainer from '../containers/PathContainer';
 import SkillsContainer from '../containers/SkillsContainer';
